@@ -28,7 +28,7 @@ public class DragAndDropTest {
     }
 
     void swapShapes() {
-        ($("#column-a")).dragAndDropTo($("#column-b"));
+        $("#column-a").dragAndDropTo($("#column-b"));
     }
 
     void checkMoving() {

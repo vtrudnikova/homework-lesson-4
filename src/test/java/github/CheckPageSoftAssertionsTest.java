@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -23,7 +24,6 @@ public class CheckPageSoftAssertionsTest {
         openPage();
         clickWikiPage();
         checkPageSoftAssertions();
-        clickPageSoftAssertions();
         checkExampleJUnit5();
     }
 
@@ -36,11 +36,8 @@ public class CheckPageSoftAssertionsTest {
     }
 
     void checkPageSoftAssertions() {
-        $("#wiki-content").$(byText("Soft assertions")).shouldHave(text("Soft assertions"));
-    }
-
-    void clickPageSoftAssertions() {
-        $("#wiki-content").$(byText("Soft assertions")).click();
+        $("#wiki-pages-box ul").$(".js-wiki-more-pages-link").click();
+        $(byText("SoftAssertions")).shouldBe(visible).click();
     }
 
     void checkExampleJUnit5() {
